@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-export function fancyFetch(options) {
+export default function fancyFetch(options) {
   const { url, success, error, method, body, ...rest } = options;
 
   const upperMethod = method && method.toUpperCase() || 'GET'
