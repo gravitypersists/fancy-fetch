@@ -17,3 +17,9 @@
 ```
 
 The only thing special about this helper is that it provides a `success` and `error` callback. All other options are passed along to isomorphic-fetch, which is another wrapper around github's polyfill for whatwg spec of fetch.
+
+## Compile
+
+`npm run compile`
+
+For now, let's keep the compiled builds in the project until we get a npm prepublish.

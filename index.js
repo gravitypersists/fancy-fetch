@@ -4,8 +4,6 @@ export function fancyFetch(options) {
   const { url, success, error, method, body, ...rest } = options;
 
   const upperMethod = method && method.toUpperCase() || 'GET'
-  const bodySerialized =  body ? JSON.stringify(body) : null;
-
   let opts = { ...rest, method: upperMethod };
   if (opts.body) opts.body = JSON.stringify(opts.body);
 
