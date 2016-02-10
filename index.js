@@ -5,7 +5,7 @@ export default function fancyFetch(options) {
 
   const upperMethod = method && method.toUpperCase() || 'GET'
   let opts = { ...rest, method: upperMethod };
-  if (opts.body) opts.body = JSON.stringify(opts.body);
+  if (body) opts.body = JSON.stringify(body);
 
   fetch(url, opts)
   .then(response => {

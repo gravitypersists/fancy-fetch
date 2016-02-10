@@ -27,7 +27,7 @@ function fancyFetch(options) {
 
   var upperMethod = method && method.toUpperCase() || 'GET';
   var opts = _extends({}, rest, { method: upperMethod });
-  if (opts.body) opts.body = JSON.stringify(opts.body);
+  if (body) opts.body = JSON.stringify(body);
 
   (0, _isomorphicFetch2.default)(url, opts).then(function (response) {
     if (response.status >= 400) {
