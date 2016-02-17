@@ -10,7 +10,7 @@ export default function fancyFetch(options) {
   fetch(url, opts)
   .then(response => {
     if (response.status >= 400) {
-      console.error(new Error(`Could not ${options.method || 'get'} ${url}: ${response.statusText}`));
+      console.error(new Error(`Could not ${method || 'get'} ${url}: ${response.statusText}`));
       response.json().then(json => error(json))
     } else if (response.status === 204 ) {
       success();

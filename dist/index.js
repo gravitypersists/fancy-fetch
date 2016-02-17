@@ -31,7 +31,7 @@ function fancyFetch(options) {
 
   (0, _isomorphicFetch2.default)(url, opts).then(function (response) {
     if (response.status >= 400) {
-      console.error(new Error('Could not ' + (options.method || 'get') + ' ' + url + ': ' + response.statusText));
+      console.error(new Error('Could not ' + (method || 'get') + ' ' + url + ': ' + response.statusText));
       response.json().then(function (json) {
         return error(json);
       });
