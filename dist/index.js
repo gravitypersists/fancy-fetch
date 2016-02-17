@@ -31,26 +31,18 @@ function fancyFetch(options) {
 
   (0, _isomorphicFetch2.default)(url, opts).then(function (response) {
     if (response.status >= 400) {
-      var err = new Error('Could not ' + (options.method || 'get') + ' ' + url + ': ' + response.statusText);
-      err.response = response;
-      throw err;
-    } else if (response.status === 204) {
-      return;
-    } else {
-      return response.json();
-    }
-  }).then(function (json) {
-    return success(json);
-  }).catch(function (err) {
-    throw err;
-    if (err.response) {
-      err.response.json().then(function (json) {
+      console.error(new Error('Could not ' + (options.method || 'get') + ' ' + url + ': ' + response.statusText));
+      response.json().then(function (json) {
         return error(json);
       });
+    } else if (response.status === 204) {
+      success();
     } else {
-      // TODO: This isn't always true - need to figure out a better way to handle catch
-      // when an error is occuring in the success callback
-      error({ networkFailure: true });
+      response.json().then(function (json) {
+        return success(json);
+      });
     }
+  }).catch(function (err) {
+    error({ networkFailure: true });
   });
 }
