@@ -34,6 +34,8 @@ function fancyFetch(options) {
       var err = new Error('Could not ' + (options.method || 'get') + ' ' + url + ': ' + response.statusText);
       err.response = response;
       throw err;
+    } else if (response.status === 204) {
+      return;
     } else {
       return response.json();
     }
