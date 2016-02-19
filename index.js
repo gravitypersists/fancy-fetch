@@ -11,14 +11,14 @@ export default function fancyFetch(options) {
   .then(response => {
     if (response.status >= 400) {
       console.error(new Error(`Could not ${method || 'get'} ${url}: ${response.statusText}`));
-      response.json().then(json => error(json))
+      response.json().then(json => error && error(json))
     } else if (response.status === 204 ) {
-      success();
+      success && success();
     } else {
-      response.json().then(json => success(json));
+      response.json().then(json => success && success(json));
     }
   })
   .catch(err => {
-    error({ networkFailure: true })
+    error && error({ networkFailure: true })
   })
 }
