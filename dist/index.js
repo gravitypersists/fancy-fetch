@@ -33,16 +33,16 @@ function fancyFetch(options) {
     if (response.status >= 400) {
       console.error(new Error('Could not ' + (method || 'get') + ' ' + url + ': ' + response.statusText));
       response.json().then(function (json) {
-        return error(json);
+        return error && error(json);
       });
     } else if (response.status === 204) {
-      success();
+      success && success();
     } else {
       response.json().then(function (json) {
-        return success(json);
+        return success && success(json);
       });
     }
   }).catch(function (err) {
-    error({ networkFailure: true });
+    error && error({ networkFailure: true });
   });
 }
