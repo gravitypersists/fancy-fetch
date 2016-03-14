@@ -9,7 +9,7 @@ export default function fancyFetch(options) {
   const urlToUse = query ? `${url}?${stringify(query)}` : url;
 
   let opts = { ...rest, method: upperMethod };
-  if (body) opts.body = JSON.stringify(body);
+  if (body && body.constructor !== FormData) opts.body = JSON.stringify(body);
 
   fetch(urlToUse, opts)
   .then(response => {

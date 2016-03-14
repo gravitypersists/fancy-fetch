@@ -33,7 +33,7 @@ function fancyFetch(options) {
   var urlToUse = query ? url + '?' + (0, _queryString.stringify)(query) : url;
 
   var opts = _extends({}, rest, { method: upperMethod });
-  if (body) opts.body = JSON.stringify(body);
+  if (body && body.constructor !== FormData) opts.body = JSON.stringify(body);
 
   (0, _isomorphicFetch2.default)(urlToUse, opts).then(function (response) {
     if (response.status >= 400) {
