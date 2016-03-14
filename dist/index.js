@@ -30,7 +30,7 @@ function fancyFetch(options) {
 
   var upperMethod = method && method.toUpperCase() || 'GET';
 
-  var urlToUse = query ? url + (0, _queryString.stringify)(query) : url;
+  var urlToUse = query ? url + '?' + (0, _queryString.stringify)(query) : url;
 
   var opts = _extends({}, rest, { method: upperMethod });
   if (body) opts.body = JSON.stringify(body);
