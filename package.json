@@ -1,25 +1,27 @@
 {
   "name": "fancy-fetch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "simple wrapper around isomorphic-fetch",
   "main": "dist/index.js",
+  "files": ["dist"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "babel index.js --out-dir dist"
+    "compile": "babel index.js --out-dir dist",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anyperk/fancy-fetch.git"
+    "url": "git+https://github.com/gravitypersists/fancy-fetch.git"
   },
   "keywords": [
     "fetch"
   ],
   "author": "gravitypersists@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/anyperk/fancy-fetch/issues"
+    "url": "https://github.com/gravitypersists/fancy-fetch/issues"
   },
-  "homepage": "https://github.com/anyperk/fancy-fetch#readme",
+  "homepage": "https://github.com/gravitypersists/fancy-fetch#readme",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
     "query-string": "^3.0.1"
