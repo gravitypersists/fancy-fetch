@@ -2,6 +2,8 @@
 
 ## Usage
 
+`npm install -s fancy-fetch`
+
 ```
   import fetch from 'fancy-fetch'
 
